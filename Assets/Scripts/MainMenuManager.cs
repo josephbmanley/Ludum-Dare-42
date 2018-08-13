@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour {
+    Fader fader;
 
 	public void ExitGame()
     {
@@ -15,8 +16,15 @@ public class MainMenuManager : MonoBehaviour {
     }
     public void NewGame()
     {
-        SceneManager.LoadScene(1);
+        fader.FadeIn = false;
+        StartCoroutine(LoadGame());
+        
 
+    }
+
+    public void LoadCredits(string creator)
+    {
+        Application.OpenURL("https://ldjam.com/users/" + creator + "/");
     }
 
     //Go between main menu and settings
@@ -30,5 +38,16 @@ public class MainMenuManager : MonoBehaviour {
         PlayerPrefs.Save();
         transform.Find("Settings").gameObject.SetActive(false);
         transform.Find("Default").gameObject.SetActive(true);
+    }
+    void Start()
+    {
+        fader = FindObjectOfType<Fader>();
+        
+    }
+
+    IEnumerator LoadGame()
+    {
+        yield return new WaitForSeconds(fader.fadeTime*4);
+        SceneManager.LoadScene(1);
     }
 }

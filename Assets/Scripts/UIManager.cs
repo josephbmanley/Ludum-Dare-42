@@ -6,14 +6,26 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour {
     Player_Manager player;
+    Fader fader;
     public GameObject checkoutGUI;
     public Text itemCount;
 
+    IEnumerator GoToMainMenu()
+    {
+        yield return new WaitForSeconds(fader.fadeTime * 4);
+        SceneManager.LoadScene(0);
+    }
+    IEnumerator GoToGameOver()
+    {
+        yield return new WaitForSeconds(fader.fadeTime * 4);
+        SceneManager.LoadScene(2);
+    }
 
-	
-	void Start () {
+    void Start () {
         //Get play component
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Manager>();
+        //Get the fader
+        fader = FindObjectOfType<Fader>();
 	}
 	
 	void Update () {
@@ -36,6 +48,13 @@ public class UIManager : MonoBehaviour {
     }
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene(0);
+        fader.FadeIn = false;
+        StartCoroutine(GoToMainMenu());
+    }
+    public void LoadGameOver()
+    {
+        fader.FadeIn = false;
+        fader.fadeTime = 0.25f;
+        StartCoroutine(GoToGameOver());
     }
 }

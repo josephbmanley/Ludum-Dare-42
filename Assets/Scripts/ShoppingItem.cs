@@ -9,9 +9,17 @@ public class ShoppingItem : MonoBehaviour {
     public bool rotates = true;
     Collider2D collidercomp;
     Player_Manager player;
+    static Transform magnet = null;
 
 	// Use this for initialization
 	void Start () {
+        //Grab magnet location
+        if (magnet == null)
+        {
+            magnet = GameObject.FindGameObjectWithTag("Magnet").transform;
+        }
+
+
         if (this.gameObject.GetComponent<Collider2D>() == null)
         {
             this.gameObject.AddComponent<BoxCollider2D>();
@@ -26,6 +34,20 @@ public class ShoppingItem : MonoBehaviour {
         if (rotates)
         {
             transform.Rotate(Vector3.down * Time.deltaTime * rotateSpeed);
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (pickedUp)
+        {
+            if (gameObject.GetComponent<BoxCollider>() == null)
+            {
+                this.gameObject.AddComponent<BoxCollider>();
+                this.gameObject.AddComponent<Rigidbody>();
+            }
+            float speed = 100;
+            this.GetComponent<Rigidbody>().AddForce((magnet.position - transform.position).normalized * speed);
         }
     }
 
@@ -54,8 +76,8 @@ public class ShoppingItem : MonoBehaviour {
                 item.number = 1;
                 player.itemsCollected.Add(item);
             }
-
-            Destroy(this.gameObject);
+            Destroy(GetComponent<BoxCollider2D>());
+            //Destroy(this.gameObject);
         }
     }
 

@@ -20,9 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4696397830111422}
   - component: {fileID: 61488918003713694}
+  - component: {fileID: 114307770749824408}
   m_Layer: 0
   m_Name: Soda Stack
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,3 +159,14 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114307770749824408
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1095404726483672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee44871449d727f4aa8efeab64dd4344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

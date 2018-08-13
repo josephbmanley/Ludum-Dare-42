@@ -14,12 +14,14 @@ public class Player_Manager : MonoBehaviour {
 
     //Speed Variables
     public float speedBoost = 0;
-    const float baseSpeed = 6f;
+    const float baseSpeed = 20f;
     public Animator animator;
 
     //Jump Variables
     public float jumpBoost = 0;
-    const float baseJump = 750f;
+    const float baseJump = 1000f;
+
+    const float MaxVelocity = 10f;
 
     private bool touchingGround = false;
     public bool animate = true;
@@ -41,13 +43,28 @@ public class Player_Manager : MonoBehaviour {
     }
 	
 	
-	void Update () {
+	void FixedUpdate () {
         /* =====================
            General game movement
            ===================== */
-        this.GetComponent<Rigidbody2D>().AddForce(transform.right * getSpeed());
+        Vector2 righttwo = transform.right;
+        Debug.Log(GetComponent<Rigidbody2D>().velocity);
+        if (GetComponent<Rigidbody2D>().velocity.x > righttwo.x * MaxVelocity)
+        {
+            this.GetComponent<Rigidbody2D>().AddForce(transform.right * getSpeed() * -1);
+        }
+        else
+        {
+            this.GetComponent<Rigidbody2D>().AddForce(transform.right * getSpeed());
+        }
+        Vector2 uptwo = transform.up;
+        if (GetComponent<Rigidbody2D>().velocity.y > uptwo.x * MaxVelocity)
+        {
+            this.GetComponent<Rigidbody2D>().AddForce(transform.up * getSpeed() * -1);
+        }
+
         //Jumping
-        if(Input.GetKeyDown(KeyCode.Space) & touchingGround)
+        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) && touchingGround)
         {
             animator.Play("Jumpy_Jump");
             this.GetComponent<Rigidbody2D>().AddForce(transform.up * getJumpMomentum());
@@ -88,6 +105,13 @@ public class Player_Manager : MonoBehaviour {
         if(col.gameObject.tag == "Floor")
         {
             touchingGround = true;
+        }
+        //Bouncing
+        else if(col.gameObject.tag == "Obstacle")
+        {
+            this.GetComponent<Rigidbody2D>().AddForce(transform.right * -1000f);
+            this.GetComponent<Rigidbody2D>().AddForce(transform.up * 350f);
+            Debug.Log("BOUNCE");
         }
     }
     void OnCollisionExit2D(Collision2D col)

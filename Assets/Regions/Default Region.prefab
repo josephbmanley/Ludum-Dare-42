@@ -2233,7 +2233,7 @@ GameObject:
   - component: {fileID: 212787173613353552}
   m_Layer: 0
   m_Name: Shopping Cart Obsticle
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2878,7 +2878,7 @@ GameObject:
   - component: {fileID: 212761806564425080}
   m_Layer: 0
   m_Name: Shopping Cart Obsticle (2)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2942,7 +2942,7 @@ GameObject:
   - component: {fileID: 61410701397211964}
   m_Layer: 0
   m_Name: Soda Stack
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6697,7 +6697,7 @@ GameObject:
   - component: {fileID: 61322023827184228}
   m_Layer: 0
   m_Name: Soda Stack (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8869,7 +8869,7 @@ GameObject:
   - component: {fileID: 212600046324141284}
   m_Layer: 0
   m_Name: Shopping Cart Obsticle (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -10,7 +10,7 @@ public class IntercomManager : MonoBehaviour {
     AudioSource source;
 	// Use this for initialization
 	void Start () {
-        currentCountDown = countDownMin;
+        currentCountDown = countDownMax/2;
         source = GetComponent<AudioSource>();
 	}
 	
