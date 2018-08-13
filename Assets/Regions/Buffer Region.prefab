@@ -78,6 +78,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1017572657649742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4175047804817592}
+  - component: {fileID: 114769293109140428}
+  m_Layer: 0
+  m_Name: Sign
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1022705539608794
 GameObject:
   m_ObjectHideFlags: 1
@@ -5017,6 +5033,19 @@ Transform:
   m_Father: {fileID: 4848454092927780}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4175047804817592
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1017572657649742}
+  m_LocalRotation: {x: 0, y: -0.38268343, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 3.96, z: 24.03}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4366216342900194}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
 --- !u!4 &4178363115897268
 Transform:
   m_ObjectHideFlags: 1
@@ -5849,6 +5878,7 @@ Transform:
   - {fileID: 4147154942042372}
   - {fileID: 4374207235118864}
   - {fileID: 4263815111515062}
+  - {fileID: 4175047804817592}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18253,3 +18283,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114769293109140428
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1017572657649742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0312865e0f3de4b449fc40d434e9fb41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generatables:
+  - {fileID: 100002, guid: 553d63e13d6c45a42be987398fc15c2f, type: 3}
+  - {fileID: 100002, guid: cc2b7ac699a65a648b19019d3abb9039, type: 3}
+  - {fileID: 100002, guid: 84491e80c0583954fb61048845397900, type: 3}
+  noChance: 8

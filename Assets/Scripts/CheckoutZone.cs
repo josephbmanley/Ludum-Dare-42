@@ -24,6 +24,8 @@ public class CheckoutZone : MonoBehaviour {
             //Send data to GUI
             GameObject.FindObjectOfType<UIManager>().CheckoutUI((int)player.totalValue, player.itemsCollected);
 
+            Destroy(FindObjectOfType<DeathVoid>().gameObject);
+
             //Find music play
             AudioSource[] sources = GameObject.FindObjectsOfType<AudioSource>();
             foreach(AudioSource sour in sources)
