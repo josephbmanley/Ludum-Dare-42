@@ -14,12 +14,12 @@ public class Player_Manager : MonoBehaviour {
 
     //Speed Variables
     public float speedBoost = 0;
-    const float baseSpeed = 20f;
+    const float baseSpeed = 35f;
     public Animator animator;
 
     //Jump Variables
     public float jumpBoost = 0;
-    const float baseJump = 1000f;
+    const float baseJump = 1250f;
 
     const float MaxVelocity = 10f;
 
@@ -48,7 +48,6 @@ public class Player_Manager : MonoBehaviour {
            General game movement
            ===================== */
         Vector2 righttwo = transform.right;
-        Debug.Log(GetComponent<Rigidbody2D>().velocity);
         if (GetComponent<Rigidbody2D>().velocity.x > righttwo.x * MaxVelocity)
         {
             this.GetComponent<Rigidbody2D>().AddForce(transform.right * getSpeed() * -1);

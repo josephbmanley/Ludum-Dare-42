@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21e6ba43b830e5645a343247cd0a0aee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generationBeforeCheckout: 25
+  generationBeforeCheckout: 12
   regions:
   - prefab: {fileID: 1719356181810238, guid: c5761f15e52618745a5cd9f484a4b3f9, type: 2}
     length: 150
