@@ -18,8 +18,6 @@ public class MainMenuManager : MonoBehaviour {
     {
         fader.FadeIn = false;
         StartCoroutine(LoadGame());
-        
-
     }
 
     public void LoadCredits(string creator)

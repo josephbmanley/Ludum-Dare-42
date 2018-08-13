@@ -64,7 +64,7 @@ public class Player_Manager : MonoBehaviour {
         }
 
         //Jumping
-        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) && touchingGround)
+        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) && (touchingGround & animate ))
         {
             animator.Play("Jumpy_Jump");
             this.GetComponent<Rigidbody2D>().AddForce(transform.up * getJumpMomentum());
