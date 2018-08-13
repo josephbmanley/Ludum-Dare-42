@@ -19,13 +19,18 @@ public class CheckoutZone : MonoBehaviour {
         if (collision.tag == "Player")
         {
             Debug.Log("Checking out...");
+            //Stop animations
             player.animate = false;
+            //Send data to GUI
             GameObject.FindObjectOfType<UIManager>().CheckoutUI((int)player.totalValue, player.itemsCollected);
+
+            //Find music play
             AudioSource[] sources = GameObject.FindObjectsOfType<AudioSource>();
             foreach(AudioSource sour in sources)
             {
-                if(sour.loop == true)
+                if(sour.loop == true) //If its the looping track (the music source)
                 {
+                    //Stop music and play victory tune once
                     sour.loop = false;
                     sour.clip = victory;
                     sour.Play();

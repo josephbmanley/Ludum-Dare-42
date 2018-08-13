@@ -67,6 +67,8 @@ public class Player_Manager : MonoBehaviour {
                 animator.StopPlayback();
             }
         }
+
+        //Stop rotating if over 46 degrees
         if(this.transform.localEulerAngles.z > 46)
         {
             GetComponent<Rigidbody2D>().angularVelocity = 0;
@@ -78,6 +80,9 @@ public class Player_Manager : MonoBehaviour {
 
     }
 
+    /*  =================
+     *  =Floor Collision=
+        =================   */
     void OnCollisionEnter2D(Collision2D col)
     {
         if(col.gameObject.tag == "Floor")

@@ -10,24 +10,28 @@ public class UIManager : MonoBehaviour {
     public Text itemCount;
 
 
-	// Use this for initialization
+	
 	void Start () {
+        //Get play component
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Manager>();
 	}
 	
-	// Update is called once per frame
 	void Update () {
+        //Update item GUI
         itemCount.text = player.itemCount.ToString();
 	}
     public void CheckoutUI(int cashTotal, List<collected> itemCollected)
     {
+        //Display total
         checkoutGUI.transform.Find("Total").GetComponent<Text>().text = "TOTAL DEBT: $" + cashTotal.ToString();
+        //Generate receipt display
         string receipt = "";
         foreach(collected item in itemCollected)
         {
             receipt += item.name + "    x" + item.number.ToString() +"\n";
         }
         checkoutGUI.transform.Find("Receipt").GetComponent<Text>().text = receipt;
+        //Display 'checkout'
         checkoutGUI.SetActive(true);
     }
     public void LoadMainMenu()

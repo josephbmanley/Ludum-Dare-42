@@ -18,6 +18,8 @@ public class MainMenuManager : MonoBehaviour {
         SceneManager.LoadScene(1);
 
     }
+
+    //Go between main menu and settings
     public void Settings()
     {
         transform.Find("Default").gameObject.SetActive(false);

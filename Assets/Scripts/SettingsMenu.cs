@@ -17,32 +17,38 @@ public class SettingsMenu : MonoBehaviour {
 
     private void Start()
     {
+        //Load and set fullscreen
         if(PlayerPrefs.HasKey("fullscreen"))
         {
             Screen.fullScreen = (PlayerPrefs.GetInt("fullscreen") == 1);
             fullscreenToggle.isOn = (PlayerPrefs.GetInt("fullscreen") == 1);
         }
 
+        //Load and set master volume
         if(PlayerPrefs.HasKey("MasterVolume"))
         {
             SetMasterVolume(PlayerPrefs.GetFloat("MasterVolume"));
             masterVolumeSlider.value = PlayerPrefs.GetFloat("MasterVolume");
         }
+        //Load and set music volume
         if (PlayerPrefs.HasKey("MusicVolume"))
         {
             SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume"));
             musicVolumeSlider.value = PlayerPrefs.GetFloat("MusicVolume");
         }
+        //Load and set GUI volume
         if (PlayerPrefs.HasKey("GUIVolume"))
         {
             SetGUIVolume(PlayerPrefs.GetFloat("GUIVolume"));
             guiVolumeSlider.value = PlayerPrefs.GetFloat("GUIVolume");
         }
+        //Load and set intercome volume
         if (PlayerPrefs.HasKey("IntercomVolume"))
         {
             SetIntercomVolume(PlayerPrefs.GetFloat("IntercomVolume"));
             intercomVolumeSlider.value = PlayerPrefs.GetFloat("IntercomVolume");
         }
+        //Load and set resolution
         if(PlayerPrefs.HasKey("ResWidth"))
         {
             if(PlayerPrefs.HasKey("ResHeight"))
@@ -59,8 +65,8 @@ public class SettingsMenu : MonoBehaviour {
         }
 
 
+        //Load resolutions
         resolutions = Screen.resolutions;
-
         resolutionDropdown.ClearOptions();
         int currentRes = 0;
         List<string> options = new List<string>();
@@ -72,7 +78,10 @@ public class SettingsMenu : MonoBehaviour {
                 currentRes = i;
             }
         }
+        //Add resolutions to config
         resolutionDropdown.AddOptions(options);
+
+        //Set current resolution
         resolutionDropdown.value = currentRes;
         resolutionDropdown.RefreshShownValue();
     }
